@@ -1,0 +1,100 @@
+Variables:
+- immutable by default!
+- create a variable: let var_name:var_type
+    - var_type is optional
+    - you can also specify mutable:  let mut
+- you cannot assign a variable to another if they don't have the same type
+
+Constants:
+- create a constant: const VAR_NAME:var_type = value
+    - var_type is obligatory
+
+Data Types:
+- in C: int_32, uint_32   in Rust: i32, u32
+- in C: float, double   in Rust: f32, f64
+- bool -> false (or 0), true (or 1)
+- char is exactly the same as C
+- there is no type coercion, so you cannot operate with 2 variables that are different types.
+
+- type casting: var_name as type
+
+- tuples:
+    - like a struct in C, but you don't have to define it before using it
+    - create a tuple: let tuple_name: (type1, type2 ...) = (value1, value2 ...)
+    - access/assign element: tuple_name.index, index is just the number, so tup.0, tup.1
+
+- arrays:
+    - create an array: let array_name: [type; size] = [val1, val2, val3...]
+    - the type and size are optional
+    - access/assign element: array_name[index]
+
+- string to int:
+    - var_name is String
+    - var_name.trim().parse().unwrap()
+    - trim() removes \n and whitespace
+    - parse() get int value if there is one. if not, returns
+
+- Result:
+    - like an Optional in Java
+    - you can handle the possible cases with:
+    match result_var {
+        Ok(var) => ...,
+        Err(e) => ...
+    }
+
+    or using
+
+    if result_var.is_err() {...}
+
+Scopes:
+- variable scopes work the same a C
+- you can make your own scope anywhere with { ... }
+- you can redefine variables in the same scope (?!). it will use the latest definition.
+
+Control flow:
+    - condition and operators are the same
+    - if statement is the same but without the (), so    if var == 2 {...}
+    - else statement is also the same
+
+Match:
+    - like switch from C but more featured
+    - the general structure is:
+    match var_name {
+        value1 => ...,              // var_name == value1
+        value2 | value3 => ...,     // var_name == value2 || var_name == value3
+        value3..=value4 => ...,     // var_name is between value3 a value4
+        _ => ...                    // like default from C
+    }
+
+Ranges:
+    - like the range operator in Python
+    - its syntax is:    4..=7   is [4,7]
+
+Loops:
+    - in C: while(1) {...}                 in Rust: loop {...}     you can use continue and break
+    - in C: while(var < 5) {...}           in Rust: while var < 5 {...}
+    - in Java: for(type var : arr) {...}   in Rust: for var in arr.iter() {...}
+        - you can use also:  for var in 0..=100 {...}
+
+
+STD input:
+- there is a hierarchy:  create -> module
+- import a module: use create::module
+1) create string: let mut input = String::new();
+2) get input: io::stdin().read_line(&mut input).expect('error catch');
+   - &mut passes a mutable reference
+   - read_line returns a result object (like an Optional in Java) and you need to unwrap o expect it
+
+STD output:
+- use println!(...)
+- in C: "x = %d", in Rust: "x = {}".  Notice no need to specify type.
+
+Functions:
+- create a function: fn func_name(par_name:typ1, par_name2:typ2 ...) -> type3 {......}
+
+
+Strings:
+   - String: a UTF8 string that can be expanded.
+   - &str: a string slice, that points directly to a string and is immutable.
+
+
