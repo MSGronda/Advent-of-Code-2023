@@ -5,7 +5,6 @@ const SEPARATOR: &str = "|";
 fn get_score(card_text: &str) -> u32 {
     let mut tokens: Vec<&str> = card_text.split(' ').collect();
 
-    // Considering it says: "large pile of colorful cards", its best to use a data set with constant lookup time
     let mut winning_numbers = HashSet::new();
 
     let mut winning_number_stage = true;

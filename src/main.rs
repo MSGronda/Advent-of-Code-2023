@@ -1,11 +1,6 @@
-use crate::day4::day4;
-
-mod day1;
-mod day2;
-mod day3;
-mod day4;
-
+use crate::day5::day5;
+mod day5;
 
 fn main() {
-    day4()
+    day5();
 }
